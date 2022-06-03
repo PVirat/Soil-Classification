@@ -9,7 +9,7 @@ import os, sys, glob, re
 
 app = Flask(__name__)
 
-model_path = "Soilclass.h5"
+model_path = "SoilNet_93_86.h5"
 
 SoilNet = load_model(model_path)
 
@@ -64,7 +64,7 @@ def predict():
         file.save(file_path)
 
         print("@@ Predicting class......")
-        pred, output_page = model_predict(file_path,Soilclass)
+        pred, output_page = model_predict(file_path,SoilNet_93_86)
               
         return render_template(output_page, pred_output = pred, user_image = file_path)
     
